@@ -64,7 +64,7 @@ jobs:
       #          token: ${{ secrets.FIREBASE_TOKEN }}
       #          groups: testers
       #          file: app/build/outputs/apk/debug/app-debug.apk
-      -
+
       ## deploy to google play
       - name: Create service_account.json
         run: echo '${{ secrets.GOOGLE_PLAY_JSON_FILE }}' > service_account.json
