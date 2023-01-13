@@ -73,19 +73,18 @@ jobs:
         env:
           PLAY_CONFIG_JSON: ${{ secrets.GOOGLE_PLAY_JSON_FILE }}
 
-#      ## deploy to google play
-#      - name: Create service_account.json
-#        run: echo '${{ secrets.GOOGLE_PLAY_JSON_FILE }}' > service_account.json
-#      - name: Deploy to Play Store
-#        uses: r0adkll/upload-google-play@v1
-#        with:
-##          serviceAccountJson: service_account.json
-#          serviceAccountJsonPlainText: service_account.json
-#          packageName: common.elgamlgame
-##          releaseFiles: app/build/outputs/bundle/release/*.aab
-#          releaseFiles: app/build/outputs/bundle/release/app-release.aab
-##          track: internal
-#          track: internal
+      ## deploy to google play
+      - name: Create service_account.json
+        run: echo '${{ secrets.GOOGLE_PLAY_JSON_FILE }}' > service_account.json
+      - name: Deploy to Play Store
+        uses: r0adkll/upload-google-play@v1
+        with:
+#          serviceAccountJson: service_account.json
+          serviceAccountJson: service_account.json
+          packageName: common.elgamlgame
+#          releaseFiles: app/build/outputs/bundle/release/*.aab
+          releaseFiles: app/build/outputs/bundle/release/app-release.aab
+          track: internal
 #          whatsNewDirectory: distribution/
 
 #          status: draft
