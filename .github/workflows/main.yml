@@ -78,3 +78,4 @@ jobs:
           whatsNewDirectory: whatsnew/
           mappingFile: app/build/outputs/mapping/release/mapping.txt
           inAppUpdatePriority: 5
+
