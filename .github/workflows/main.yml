@@ -47,10 +47,10 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-  upload:
-    needs: [ build ]
-    runs-on: ubuntu-latest
-    steps:
+#  upload:
+#    needs: [ build ]
+#    runs-on: ubuntu-latest
+#    steps:
       - name: Upload  bundle
         uses: actions/upload-artifact@v2
         with:
