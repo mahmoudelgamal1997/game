@@ -7,8 +7,8 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  job1:
-    name: Job 1
+  build:
+    name: build SDk
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code to specific branch
@@ -47,11 +47,15 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-      - name: Upload  bundle
-        uses: actions/upload-artifact@v2
-        with:
-          name: Android-CI-CD-RELEASE
-          path: app/build/outputs/bundle/release/app-release.aab
+  upload:
+      needs: [ build ]
+      runs-on: self-hosted
+      steps:
+        - name: Upload  bundle
+          uses: actions/upload-artifact@v2
+          with:
+            name: Android-CI-CD-RELEASE
+            path: app/build/outputs/bundle/release/app-release.aab
 ### upload to firebase
 #      - name: upload artifact to Firebase App Distribution
 #        uses: wzieba/Firebase-Distribution-Github-Action@v1
@@ -68,7 +72,7 @@ jobs:
         uses: r0adkll/upload-google-play@v1.0.15
         with:
           serviceAccountJson: service_account.json
-          packageName: ${{ github.event.inputs.app_id }}
+          packageName: "common.elgamlgame"
           releaseFiles: app/build/outputs/bundle/release/*.aab
           track: internal
           whatsNewDirectory: whatsnew/
