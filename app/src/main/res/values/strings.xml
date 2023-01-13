@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Knife Game</string>
+
+    <bool name="is_testing">true</bool>
+
+    <bool name="enable_banner">true</bool>
+        <bool name="banner_at_bottom">true</bool>
+        <bool name="banner_not_overlap">true</bool>
+        <string name="id_banner">ca-app-pub-7819737441034557/2286091917</string>
+
+    <bool name="enable_inter">true</bool>
+        <string name="id_inter">ca-app-pub-7819737441034557/9358427418</string>
+
+    <bool name="enable_gdpr">true</bool>
+        <bool name="under_age">false</bool>
+        <string name="privacy_url">https://pages.flycricket.io/knife-game-lite/privacy.html</string>
+        <string name="privacy_policy">Privacy Policy</string>
+        <string name="privacy_email">mahmoudelgamal1997@gmail.com</string>
+
+    <string name="share_description">Try this new game</string>
+
+    <bool name="full_screen">true</bool>
+    <string name="image_content">image</string>
+
+    <string name="sure_quit">Are you sure you want to quit?</string>
+    <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
+
+    <bool name="need_connection">false</bool>
+    <string name="no_connection">No Internet Connection</string>
+    <string name="txtRetry">Retry</string>
+
+    <integer name="splash_delay">5000</integer>
+
+    <!-- not used for this project -->
+    <bool name="enable_reward">false</bool>
+    <string name="id_reward">ca-app-pub-7819737441034557/5622701698</string>
+
+</resources>
