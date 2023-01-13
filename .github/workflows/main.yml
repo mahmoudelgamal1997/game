@@ -78,7 +78,7 @@ jobs:
 #          track: internal
           track: beta
 #          status: draft
-          whatsNewDirectory: whatsnew/
+#          whatsNewDirectory: whatsnew/
 #          mappingFile: app/build/outputs/mapping/release/mapping.txt
 #          inAppUpdatePriority: 5
 
