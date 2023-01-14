@@ -56,35 +56,24 @@ jobs:
         with:
           name: Android-CI-CD-RELEASE
           path: app/build/outputs/bundle/release/app-release.aab
-      ### upload to firebase
-      #      - name: upload artifact to Firebase App Distribution
-      #        uses: wzieba/Firebase-Distribution-Github-Action@v1
-      #        with:
-      #          appId: ${{ secrets.FIRE_BASE_ID }}
-      #          token: ${{ secrets.FIREBASE_TOKEN }}
-      #          groups: testers
-      #          file: app/build/outputs/apk/debug/app-debug.apk
+## upload to firebase
+      - name: upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIRE_BASE_ID }}
+          token: ${{ secrets.FIREBASE_TOKEN }}
+          groups: testers
+          file: app/build/outputs/apk/debug/app-debug.apk
 
 
-      - name: Create Google Play Config file
-        run : |
-            echo "$PLAY_CONFIG_JSON" > play_config.json.b64
-            base64 -d -i play_config.json.b64 > play_config.json
-        env:
-          PLAY_CONFIG_JSON: ${{ secrets.GOOGLE_PLAY_JSON_FILE }}
+#      - name: Create Google Play Config file
+#        run : |
+#            echo "$PLAY_CONFIG_JSON" > play_config.json.b64
+#            base64 -d -i play_config.json.b64 > play_config.json
+#        env:
+#          PLAY_CONFIG_JSON: ${{ secrets.GOOGLE_PLAY_JSON_FILE }}
 
-      ## deploy to google play
-#      - name: Create service_account.json
-#        run: echo '${{ secrets.GOOGLE_PLAY_JSON_FILE }}' > service_account.json
-#      - name: Deploy to Play Store
-#        uses: r0adkll/upload-google-play@v1
-#        with:
-##          serviceAccountJson: service_account.json
-#          serviceAccountJson: service_account.json
-#          packageName: common.elgamlgame
-##          releaseFiles: app/build/outputs/bundle/release/*.aab
-#          releaseFiles: app/build/outputs/bundle/release/app-release.aab
-#          track: production
+
 
       - name: Deploy to Production
         uses: r0adkll/upload-google-play@v1.0.15
@@ -95,12 +84,3 @@ jobs:
           track: production
           inAppUpdatePriority: 2
           userFraction: 0.33
-
-
-#          whatsNewDirectory: distribution/
-
-#          status: draft
-#          whatsNewDirectory: whatsnew/
-#          mappingFile: app/build/outputs/mapping/release/mapping.txt
-#          inAppUpdatePriority: 5
-
