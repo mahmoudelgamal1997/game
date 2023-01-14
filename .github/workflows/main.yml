@@ -74,8 +74,8 @@ jobs:
           PLAY_CONFIG_JSON: ${{ secrets.GOOGLE_PLAY_JSON_FILE }}
 
       ## deploy to google play
-      - name: Create service_account.json
-        run: echo '${{ secrets.GOOGLE_PLAY_JSON_FILE }}' > service_account.json
+#      - name: Create service_account.json
+#        run: echo '${{ secrets.GOOGLE_PLAY_JSON_FILE }}' > service_account.json
       - name: Deploy to Play Store
         uses: r0adkll/upload-google-play@v1
         with:
