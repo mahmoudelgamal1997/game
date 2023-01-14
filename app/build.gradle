@@ -10,7 +10,7 @@ android {
         applicationId 'common.elgamlgame'
         minSdkVersion 19
         targetSdk 33
-        versionCode 7
+        versionCode 8
         versionName '1.5.0'
         multiDexEnabled true
     }
